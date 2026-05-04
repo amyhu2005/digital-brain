@@ -9,6 +9,7 @@ nav_content = """    <nav class="floating-sidebar visible">
         <a href="woodshop.html" class="sidebar-item" data-label="woodworking"><i data-lucide="hammer"></i></a>
         <a href="thoughts.html" class="sidebar-item" data-label="writing"><i data-lucide="pen-tool"></i></a>
         <a href="music.html" class="sidebar-item" data-label="search history"><i data-lucide="search"></i></a>
+        <a href="contact.html" class="sidebar-item" data-label="contact"><i data-lucide="mail"></i></a>
     </nav>"""
 
 def update_file(filepath):
