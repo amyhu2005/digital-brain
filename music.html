@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search History // Amy Hu</title>
+    <link rel="stylesheet" href="style.css?v=2">
+    <script src="admin.js" defer></script>
+    <script src="script.js" defer></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+    <div class="side-id">AMY_HU // AUDIO_MODULE // 2026.04.23</div>
+    <div class="tech-tag vertical" style="top: 50px; left: 20px;">SYSTEM_V2.0.4 // LOG_08</div>
+    <div class="tech-tag orange" style="top: 20px; right: 20px;">REF_MUSIC</div>
+
+    <nav class="floating-sidebar visible">
+        <a href="index.html#bio" class="sidebar-item" data-label="home"><i data-lucide="home"></i></a>
+        <a href="profile.html" class="sidebar-item" data-label="profile"><i data-lucide="user"></i></a>
+        <a href="4am.html" class="sidebar-item" data-label="vibecoding"><i data-lucide="terminal"></i></a>
+        <a href="woodshop.html" class="sidebar-item" data-label="woodworking"><i data-lucide="hammer"></i></a>
+        <a href="thoughts.html" class="sidebar-item" data-label="writing"><i data-lucide="pen-tool"></i></a>
+        <a href="music.html" class="sidebar-item" data-label="search history"><i data-lucide="search"></i></a>
+        <a href="contact.html" class="sidebar-item" data-label="contact"><i data-lucide="mail"></i></a>
+    </nav>
+
+    <div class="blog-container">
+        <div class="blog-header" style="text-align: center; margin-top: 2rem;">
+            <h1 class="blog-page-title" style="margin-bottom: 2rem;">Search History</h1>
+        </div>
+
+        <div class="content-body" style="max-width: 1100px; margin: 0 auto;">
+            <div class="simple-search-container">
+                <div class="simple-search-bar">
+                    <i data-lucide="search" class="simple-search-icon"></i>
+                    <input type="text" id="search-input" class="simple-search-input" placeholder="I wonder...">
+                </div>
+
+                <div class="simple-query-container" style="max-height: 400px; overflow-y: auto; scrollbar-width: thin;">
+                    <ul class="simple-query-list" id="query-list">
+                        <li>
+                            <i data-lucide="history"></i>
+                            <a
+                                href="mailto:amyhu2005@gmail.com?subject=Answer to: Immune amnesia and measles pathology">How
+                                does measles erase immune memory?</a>
+                        </li>
+                        <li>
+                            <i data-lucide="history"></i>
+                            <a href="mailto:amyhu2005@gmail.com?subject=Answer to: Girardian Theory and mimetic desire">What
+                                is Girardian Theory?</a>
+                        </li>
+                        <li>
+                            <i data-lucide="history"></i>
+                            <a href="mailto:amyhu2005@gmail.com?subject=Answer to: HPA Axis mechanics">How does the HPA
+                                Axis work?</a>
+                        </li>
+                        <li>
+                            <i data-lucide="history"></i>
+                            <a
+                                href="mailto:amyhu2005@gmail.com?subject=Answer to: Positive feedback loops in math and economics">Fixing
+                                positive feedback loops in math vs. economics.</a>
+                        </li>
+                        <li>
+                            <i data-lucide="history"></i>
+                            <a href="mailto:amyhu2005@gmail.com?subject=Answer to: Chekhov's 'The Bet' analysis">The
+                                Bet, by Anton Chekhov.</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="simple-answer-prompt">
+                <p>Have answers? Click a question to answer it, I would love to hear! Or, please type a question I
+                    should think
+                    about!</p>
+            </div>
+        </div>
+
+        <a href="index.html#bio" class="back-link">← RETURN_TO_BASE</a>
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        const searchInput = document.getElementById('search-input');
+        const queryList = document.getElementById('query-list');
+
+        // Load saved recommendations
+        const savedRecs = JSON.parse(localStorage.getItem('user-recommendations') || '[]');
+        savedRecs.forEach(text => addRecommendation(text));
+
+        searchInput.addEventListener('keypress', async (e) => {
+            if (e.key === 'Enter' && searchInput.value.trim() !== '') {
+                const text = searchInput.value.trim();
+
+                // Add locally immediately
+                addRecommendation(text);
+
+                // Save to local storage
+                const currentRecs = JSON.parse(localStorage.getItem('user-recommendations') || '[]');
+                currentRecs.push(text);
+                localStorage.setItem('user-recommendations', JSON.stringify(currentRecs));
+
+                const originalPlaceholder = searchInput.placeholder;
+                searchInput.value = '';
+                searchInput.placeholder = "TRANSMITTING_RECCE...";
+                searchInput.disabled = true;
+
+                try {
+                    await fetch('https://api.web3forms.com/submit', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            access_key: 'ed863a7f-826b-43f6-a0b4-0dcfaa046fa8',
+                            subject: "Search History Rec: " + text,
+                            message: "A visitor recommended you learn about: " + text,
+                            from_name: "Curiosity Log Module"
+                        })
+                    });
+
+                    searchInput.placeholder = "RECCE_TRANSMITTED.";
+                    setTimeout(() => {
+                        searchInput.placeholder = originalPlaceholder;
+                        searchInput.disabled = false;
+                    }, 2000);
+                } catch (error) {
+                    searchInput.placeholder = "TRANSMISSION_ERROR.";
+                    setTimeout(() => {
+                        searchInput.placeholder = originalPlaceholder;
+                        searchInput.disabled = false;
+                    }, 2000);
+                }
+            }
+        });
+
+        function addRecommendation(text) {
+            const li = document.createElement('li');
+            li.style.background = 'rgba(255, 77, 0, 0.05)';
+            li.style.border = '1px dashed var(--accent-orange)';
+            li.style.padding = '0.8rem 1.25rem';
+            li.style.marginTop = '0.75rem';
+            li.style.display = 'flex';
+            li.style.alignItems = 'flex-start';
+            li.style.gap = '1rem';
+
+            li.innerHTML = `
+                <i data-lucide="plus" style="color: var(--accent-orange); width: 16px; margin-top: 3px;"></i>
+                <div style="flex: 1;">
+                    <span style="color: var(--accent-orange); font-size: 1rem; line-height: 1.4;">${text}</span>
+                    <span style="display: block; font-family: var(--mono-font); font-size: 0.7rem; color: var(--accent-orange); opacity: 0.7; margin-top: 4px; letter-spacing: 0.05em;">// reccomended by user</span>
+                </div>
+            `;
+            queryList.appendChild(li);
+            lucide.createIcons();
+
+            // Scroll to bottom
+            const container = document.querySelector('.simple-query-container');
+            container.scrollTop = container.scrollHeight;
+        }
+    </script>
+</body>
+
+</html>

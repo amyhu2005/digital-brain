@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compact Chess // Fabrication // Amy Hu</title>
+    <link rel="stylesheet" href="style.css?v=3">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .blog-container {
+            padding: 15vh 15vw !important;
+            max-width: 1400px !important;
+            margin: 0 auto !important;
+        }
+
+        .collage {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            width: 100%;
+            overflow-x: auto;
+            padding-bottom: 2rem;
+            scrollbar-width: thin;
+        }
+
+        .collage img {
+            height: 300px;
+            width: auto;
+            display: block;
+            border: none;
+            box-shadow: none;
+        }
+
+        .collage::-webkit-scrollbar {
+            height: 4px;
+        }
+
+        .collage::-webkit-scrollbar-thumb {
+            background: var(--accent-orange);
+        }
+
+        .blog-header {
+            margin-bottom: 4rem;
+        }
+
+        .step-section {
+            margin-bottom: 6rem;
+        }
+
+        .step-header {
+            border-left: 3px solid var(--accent-orange);
+            padding-left: 30px;
+            margin-bottom: 2rem;
+        }
+
+        .step-number {
+            font-family: var(--mono-font);
+            font-size: 0.9rem;
+            color: var(--accent-orange);
+            margin-bottom: 0.5rem;
+        }
+
+        .step-title {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+        }
+
+        .step-blurb {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--text-main);
+            max-width: 800px;
+        }
+
+        /* Grid layout for 2-row sections */
+        .collage-grid {
+            display: grid;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            width: 100%;
+            max-width: 1100px;
+        }
+
+        .collage-grid.cols-3 {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .collage-grid.cols-2 {
+            grid-template-columns: repeat(2, 1fr);
+            max-width: 800px;
+            /* Shrunk from 1100px to make photos smaller */
+        }
+
+        .collage-grid img {
+            width: 100%;
+            max-height: 350px;
+            /* Shrinks tall images without cropping */
+            object-fit: contain;
+            display: block;
+        }
+
+        .collage-grid .rotated-sketch-container {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 1.4/1;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+        }
+
+        .collage-grid .rotated-sketch-container img {
+            transform: rotate(90deg);
+            height: 140% !important;
+            /* Scale up to fill grid cell width */
+            width: auto !important;
+            border: none !important;
+            box-shadow: none !important;
+            margin: 0 !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="side-id">AMY_HU // COMPACT_CHESS // 2026.05.03</div>
+    <div class="tech-tag orange" style="top: 20px; right: 20px;">REF_PUZZLE_GEOMETRY</div>
+
+    <nav class="floating-sidebar visible">
+        <a href="index.html#bio" class="sidebar-item" data-label="home"><i data-lucide="home"></i></a>
+        <a href="profile.html" class="sidebar-item" data-label="profile"><i data-lucide="user"></i></a>
+        <a href="4am.html" class="sidebar-item" data-label="vibecoding"><i data-lucide="terminal"></i></a>
+        <a href="woodshop.html" class="sidebar-item" data-label="woodworking"><i data-lucide="hammer"></i></a>
+        <a href="thoughts.html" class="sidebar-item" data-label="writing"><i data-lucide="pen-tool"></i></a>
+        <a href="music.html" class="sidebar-item" data-label="search history"><i data-lucide="search"></i></a>
+    </nav>
+
+    <div class="blog-container">
+        <div class="blog-header">
+            <p class="blog-subtitle">// WOODWORKING // CNC_FABRICATION</p>
+            <h1 class="blog-page-title">Compact Chess</h1>
+            <p
+                style="font-family: var(--mono-font); font-size: 0.85rem; color: var(--accent-orange); letter-spacing: 0.05em;">
+                // THANKS DALAL AND BRIAN FOR HELPING</p>
+
+        </div>
+
+        <div class="content-body">
+            <!-- Step 1: Mock up, graph -->
+            <div class="step-section">
+                <div class="step-header">
+                    <div class="step-number">STEP_01</div>
+                    <h2 class="step-title">Mock up, graph</h2>
+                    <p class="step-blurb"> I saw someone do this with Chinese Chess. Soon, drafting up these chess
+                        puzzles became my favorite pastime during boring lectures. </p>
+                </div>
+                <div class="collage-grid cols-3">
+                    <div class="rotated-sketch-container">
+                        <img src="chess-sketch-detail-1.jpg" alt="Sketchbook Profile Studies">
+                    </div>
+                    <div class="rotated-sketch-container">
+                        <img src="chess-sketch-detail-2.jpg" alt="Geometry and Interlocking Math">
+                    </div>
+                    <div class="rotated-sketch-container">
+                        <img src="chess-sketch-detail-3.jpg" alt="Puzzle Logic Sketches">
+                    </div>
+                    <div class="rotated-sketch-container">
+                        <img src="chess-sketch-math.jpg" alt="Geometric Rotations and Math">
+                    </div>
+                    <img src="chess-graph-digital.jpg" alt="Digital Interlocking Study">
+                    <img src="chess-cutouts.jpg" alt="Paper Prototype Cutouts">
+                </div>
+            </div>
+
+            <!-- Step 2: Making the board -->
+            <div class="step-section">
+                <div class="step-header">
+                    <div class="step-number">STEP_02</div>
+                    <h2 class="step-title">Making the board</h2>
+                    <p class="step-blurb"> Originally stained 4 pieces of wood before cutting into squares and glueing
+                        them onto my board. However, the stain got sanded off (lesson learned) so I remade the board
+                        with mohagony and pine. </p>
+                </div>
+                <div class="collage">
+                    <img src="chess-face.jpg" alt="Checking the Board Finish">
+                    <img src="chess-stain.jpg" alt="Staining and Gluing Squares">
+                    <img src="chess-quad-1.jpg" alt="Board Quadrants Assembly">
+                    <img src="chess-board-final.jpg" alt="Final Board Alignment">
+                </div>
+            </div>
+
+            <!-- Step 3: Next step: make pieces -->
+            <div class="step-section">
+                <div class="step-header">
+                    <div class="step-number">STEP_03</div>
+                    <h2 class="step-title">Next step: make pieces</h2>
+                    <p class="step-blurb">I have finished making the board (it still needs some final polish), the
+                        pawns, and rooks. The rest of the pieces got too hard to hand carve so I designed it on fusion
+                        to be CNC cut. </p>
+                </div>
+                <div class="collage-grid cols-2">
+                    <img src="chess-board-iso.png" alt="Full Board Isometric Render">
+                    <img src="chess-puzzle-grid.png" alt="Interlocking Puzzle Logic">
+                    <img src="chess-cnc-prep.png" alt="Fusion 360 CNC Toolpaths">
+                    <img src="chess-cad-detail.png" alt="Geometry Detail View">
+                </div>
+            </div>
+
+            <div style="margin-top: 6rem; padding-bottom: 4rem;">
+                <a href="woodshop.html" class="back-link">← RETURN_TO_WOODSHOP</a>
+            </div>
+        </div>
+    </div>
+
+    <script>lucide.createIcons();</script>
+</body>
+
+</html>

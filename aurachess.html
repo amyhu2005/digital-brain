@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AuraChess // Strategic Analysis // Amy Hu</title>
+    <link rel="stylesheet" href="style.css?v=3">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Centered expanded layout */
+        .blog-container {
+            padding: 15vh 15vw !important;
+            max-width: 1600px !important;
+            margin: 0 auto !important;
+        }
+
+        .module-image img {
+            width: 100%;
+            max-width: 950px !important;
+            height: auto;
+            display: block;
+            border: 1px solid var(--border-color);
+            box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.05);
+        }
+
+        .module-image {
+            flex: 2 !important;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            justify-content: center;
+        }
+
+        .module-text {
+            flex: 1.5 !important;
+            padding-right: 3rem;
+        }
+
+        .intro-full-image {
+            width: 100%;
+            margin-top: 4rem;
+            margin-bottom: 4rem;
+            border: 1px solid var(--border-color);
+            box-shadow: 20px 20px 0px rgba(0, 0, 0, 0.05);
+            background: white;
+        }
+
+        .intro-full-image img {
+            width: 100%;
+            display: block;
+        }
+
+        .full-width-section {
+            margin-bottom: 8rem;
+        }
+
+        .full-width-section p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: var(--text-main);
+            max-width: 1000px;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 24px;
+            background: var(--accent-orange);
+            color: white;
+            text-decoration: none;
+            font-family: var(--mono-font);
+            font-size: 0.9rem;
+            font-weight: 700;
+            border-radius: 4px;
+            margin-top: 2rem;
+            transition: var(--transition);
+        }
+
+        .project-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="side-id">AMY_HU // AURACHESS // 2026.05.01</div>
+    <div class="tech-tag vertical" style="top: 50px; left: 20px;">SYSTEM_V2.0.4 // STRATEGIC_ANALYSIS</div>
+    <div class="tech-tag orange" style="top: 20px; right: 20px;">REF_AURACHESS</div>
+
+    <div class="floating-color-bar">
+        <div class="color-strip" style="background: #1a1a1a;"></div>
+        <div class="color-strip" style="background: #333333;"></div>
+        <div class="color-strip" style="background: #666666;"></div>
+        <div class="color-strip" style="background: #ff4d00;"></div>
+    </div>
+
+    <nav class="floating-sidebar visible">
+        <a href="index.html#bio" class="sidebar-item" data-label="home"><i data-lucide="home"></i></a>
+        <a href="profile.html" class="sidebar-item" data-label="profile"><i data-lucide="user"></i></a>
+        <a href="4am.html" class="sidebar-item" data-label="vibecoding"><i data-lucide="terminal"></i></a>
+        <a href="woodshop.html" class="sidebar-item" data-label="woodworking"><i data-lucide="hammer"></i></a>
+        <a href="thoughts.html" class="sidebar-item" data-label="writing"><i data-lucide="pen-tool"></i></a>
+        <a href="music.html" class="sidebar-item" data-label="search history"><i data-lucide="search"></i></a>
+    </nav>
+
+    <div class="blog-container">
+        <div class="blog-header">
+            <p class="blog-subtitle">// STRATEGIC_ANALYSIS // CHESS_SYSTEM</p>
+            <h1 class="blog-page-title">AuraChess</h1>
+        </div>
+
+        <div class="content-body">
+            <!-- Project Overview (TOP) -->
+            <div
+                style="margin-top: 4rem; margin-bottom: 4rem; border-left: 3px solid var(--accent-orange); padding-left: 30px;">
+                <h3
+                    style="font-family: var(--mono-font); font-size: 0.9rem; color: var(--accent-orange); margin-bottom: 1rem;">
+                    OVERVIEW</h3>
+                <p style="font-size: 1.1rem; line-height: 1.7; color: var(--text-main); max-width: 900px;">
+                    Aura Chess is a visual tool designed to help you develop chess tactics by showing exactly which
+                    squares are being dominated by which player. Rather than just showing legal moves, it maps board
+                    control and piece influence to help you quickly identify underlying strategies.
+                </p>
+                <a href="https://amyhu2005.github.io/AuraChess/" class="project-link" target="_blank">
+                    <i data-lucide="external-link"></i> launch AuraChess
+                </a>
+            </div>
+
+            <!-- Intro Image (MIDDLE) -->
+            <div class="intro-full-image">
+                <img src="aura-hero-final.png" alt="AuraChess High-Quality Interface Overview">
+            </div>
+
+            <!-- Module 1: Hover Analytics -->
+            <div class="case-study-module">
+                <div class="module-text">
+                    <h3 class="module-title">01 // HOVER_ANALYTICS</h3>
+                    <p><strong>Hover Coverage Diagnostics:</strong> Hover over any active square to see a small badge
+                        (e.g., (W2|B3)) that displays exactly how many White vs. Black pieces are currently attacking or
+                        defending that specific square.</p>
+                    <p style="margin-top: 1rem;"><strong>Winning Square Overlays:</strong> Evaluates total board
+                        control. Squares are softly highlighted with a translucent Blue overlay if White has more pieces
+                        covering them, or Red if Black has the numerical advantage. Ties remain naturally blank.</p>
+                </div>
+                <div class="module-image">
+                    <img src="aura-hover.png" alt="Hover Diagnostics Example">
+                </div>
+            </div>
+
+            <!-- Module 2: Deep Analysis Modes -->
+            <div class="case-study-module">
+                <div class="module-text">
+                    <h3 class="module-title">02 // DEEP_ANALYSIS</h3>
+                    <p><strong>Comprehensive X-Ray:</strong> Visualizes true "battery" potential. Sliding pieces
+                        (Queens, Rooks, Bishops) will intelligently show their influence through blocking pieces that
+                        share the same trajectory.</p>
+                    <p style="margin-top: 1rem;"><strong>Filter Skewers / Pins:</strong> If a piece is pinned or
+                        skewered between an enemy attacker and a friendly piece of strictly HIGHER value, all of its
+                        coverage vectors are physically severed from the board math because moving it would be a
+                        blunder.</p>
+                </div>
+                <div class="module-image">
+                    <img src="aura-deep.png" alt="X-Ray and Pin Analysis">
+                </div>
+            </div>
+
+            <!-- Module 3: Granular Control -->
+            <div class="case-study-module">
+                <div class="module-text">
+                    <h3 class="module-title">03 // GRANULAR_CONTROL</h3>
+                    <p><strong>Source Pieces Filter:</strong> Uncheck specific pieces in the sidebar to instantly strip
+                        their influence from the total calculations, letting you isolate specific tactical setups.</p>
+                    <p style="margin-top: 1rem;"><strong>Target Squares Minimap:</strong> Use the interactive 8x8
+                        minimap to focus strictly on certain areas of the board. Only squares toggled ON (Green) will
+                        participate in the analytics.</p>
+                </div>
+                <div class="module-image">
+                    <img src="aura-control.png" alt="Minimap and Control Sidebar">
+                </div>
+            </div>
+
+            <!-- Module 4: Movement & History -->
+            <div class="case-study-module">
+                <div class="module-text">
+                    <h3 class="module-title">04 // MOVEMENT_LOGIC</h3>
+                    <p>You can drag-and-drop pieces or click squares to make standard chess moves. The board records
+                        your history natively, meaning you can easily use your keyboard's Left Arrow and Right Arrow
+                        keys to step backward and forward through your gameplay.</p>
+                </div>
+                <div class="module-image">
+                    <img src="aura-move.png" alt="Move History and Navigation">
+                </div>
+            </div>
+
+            <div style="margin-top: 6rem; padding-bottom: 4rem;">
+                <a href="4am.html" class="back-link">← RETURN_TO_VIBECODING</a>
+            </div>
+        </div>
+    </div>
+
+    <script>lucide.createIcons();</script>
+</body>
+
+</html>
